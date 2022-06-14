@@ -15,5 +15,9 @@ export default { name: 'App' };
 }
 body {
     font-family: $fira-sans;
+    background: $black;
+}
+ul {
+    list-style: none;
 }
 </style>
