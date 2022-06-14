@@ -32,14 +32,16 @@ nav {
     right: 0;
     top: 100%;
     height: calc(100vh - 100%);
-    background: $black;
     display: none;
 
     &.active {
         display: block;
+        background: $black;
+        @include on-tablet {
+            background: none;
+        }
     }
     @include on-tablet {
-        background: none;
         display: block;
         position: static;
         height: auto;

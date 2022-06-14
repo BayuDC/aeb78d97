@@ -38,9 +38,11 @@ export default {
 
     header {
         background: rgba($black, 0.8);
-
         &.active {
             background: $black;
+            @include on-tablet {
+                background: rgba($black, 0.8);
+            }
         }
     }
     main {

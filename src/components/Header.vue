@@ -45,8 +45,15 @@ header {
     color: $white;
     padding: 0 20px;
     position: relative;
+
+    &.active {
+        background: $black;
+        @include on-tablet {
+            background: none;
+        }
+    }
+
     @include on-tablet {
-        background: inherit;
         padding: 0 30px;
 
         .menu {
