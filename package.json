@@ -1,0 +1,25 @@
+{
+  "name": "waifuseum-web",
+  "version": "0.0.0",
+  "description": "The frontend of Waifuseum API",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BayuDC/waifuseum-web.git"
+  },
+  "author": "BayuDC <dev.bayudc@gmail.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@parcel/core": "^2.6.0",
+    "@parcel/transformer-sass": "^2.6.0",
+    "@parcel/transformer-vue": "^2.6.0",
+    "parcel": "^2.6.0"
+  },
+  "dependencies": {
+    "vue": "^3.2.37",
+    "vue-router": "^4.0.16"
+  }
+}
