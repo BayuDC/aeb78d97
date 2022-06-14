@@ -15,7 +15,6 @@ export default { name: 'App' };
 }
 body {
     font-family: $fira-sans;
-    background: $black;
     min-width: 280px;
 }
 ul {

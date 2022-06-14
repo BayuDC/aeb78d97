@@ -37,11 +37,11 @@ nav {
     &.active {
         display: block;
         background: $black;
-        @include on-tablet {
-            background: none;
-        }
     }
     @include on-tablet {
+        &.active {
+            background: none;
+        }
         display: block;
         position: static;
         height: auto;

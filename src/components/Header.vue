@@ -45,17 +45,21 @@ header {
     color: $white;
     padding: 0 20px;
     position: relative;
+    background: $black;
+
+    &.transparent {
+        background: none;
+    }
 
     &.active {
         background: $black;
-        @include on-tablet {
-            background: none;
-        }
     }
 
     @include on-tablet {
         padding: 0 30px;
-
+        &.active.transparent {
+            background: none;
+        }
         .menu {
             display: none;
         }
@@ -71,7 +75,8 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+    }
+    &.thick .container {
         @include on-tablet {
             height: 100px;
         }
