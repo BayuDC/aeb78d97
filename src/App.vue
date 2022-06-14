@@ -15,12 +15,7 @@ export default { name: 'App' };
 }
 body {
     font-family: $fira-sans;
-    background-size: cover;
-
-    #app {
-        height: 100vh;
-        background: rgba($color: $black, $alpha: 0.8);
-    }
+    background: $black;
 }
 ul {
     list-style: none;
