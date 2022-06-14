@@ -39,6 +39,7 @@ nav {
         display: block;
     }
     @include on-tablet {
+        background: none;
         display: block;
         position: static;
         height: auto;
