@@ -1,12 +1,13 @@
 <script setup>
 import { defineComponent } from 'vue';
-import AlbumsItem from '../components/AlbumsItem';
+import AlbumItem from '../components/AlbumItem';
 import Icon from '../shared/Icon';
 import Link from '../shared/Link';
+import Button from '../shared/Button';
 </script>
 
 <template>
-    <div class='flex mb-2'>
+    <div class='flex mb-4'>
         <h1 class='align-self-center'>Albums</h1>
 
         <Link to="/albums" class='ml-auto text-black flex album-header'>
@@ -17,45 +18,22 @@ import Link from '../shared/Link';
         </Link>
     </div>
     <div class="album-list">
-        <Link to="/" v-for='Album in Albums' type='button'>
-
-        <AlbumsItem :id='Albums.id' :user='Album.user' :name='Album.name' :slug='Album.slug' :date='Album.date'
-            :community='Album.community' />
-
-        </Link>
+        <AlbumItem v-for='Album in Albums' class='light flex' :id='Albums.id' :author='Album.author' :name='Album.name'
+            :slug='Album.slug' :date='Album.date' :community='Album.community' />
     </div>
 </template>
 
 <script>
 export default defineComponent({
     name: 'Albums',
-    components: { AlbumsItem, Link, Icon },
+    components: { AlbumItem, Link, Button, Icon },
 });
 </script>
 
 <style lang='scss'>
 @import '../styles/mixin';
 @import '../styles/variable';
-
-.flex {
-    display: flex;
-}
-
-.align-self-center {
-    align-self: center;
-}
-
-.text-black {
-    color: $black;
-}
-
-.ml-auto {
-    margin-left: auto;
-}
-
-.mb-2 {
-    margin-bottom: 2rem;
-}
+@import '../main.scss';
 
 .album-list {
     display: grid;
