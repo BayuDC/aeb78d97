@@ -32,7 +32,6 @@ export default {
     &::before {
         position: absolute;
         content: '';
-        background: red;
         top: 0;
         left: 0;
         right: 0;

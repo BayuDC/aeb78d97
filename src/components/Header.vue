@@ -29,7 +29,7 @@ export default {
             <router-link to="/">
                 <h1>Waifuseum</h1>
             </router-link>
-            <Button @click="toggleMenu" class="menu">
+            <Button @click="toggleMenu" class="menu clear">
                 <Icon :name="isActive ? 'close' : 'menu'" />
             </Button>
             <Navbar :isActive="isActive" />
