@@ -8,7 +8,7 @@ export default { name: 'App' };
 
 <style lang="scss">
 @import './styles/variable';
-@import './main.scss';
+@import 'main.scss';
 
 * {
     margin: 0;

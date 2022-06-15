@@ -1,20 +1,23 @@
 <script setup>
-import { defineComponent } from 'vue';
 import AlbumItem from '../components/AlbumItem';
 import Icon from '../shared/Icon';
 import Link from '../shared/Link';
-import Button from '../shared/Button';
+</script>
+
+<script>
+export default {
+    name: 'Albums',
+    components: { AlbumItem, Link, Icon },
+};
 </script>
 
 <template>
-    <div class='flex mb-4'>
-        <h1 class='align-self-center'>Albums</h1>
+    <div class="flex album-header">
+        <h1>Albums</h1>
 
-        <Link to="/albums" class='ml-auto text-black flex album-header'>
-
-        <p class='align-self-center'>Create Albums</p>
-        <Icon class='align-self-center' name='add' />
-
+        <Link to="/albums/new" class="ml-auto text-black">
+        <div class="link">Create Album+</div>
+        <Icon class="icon" name="add" />
         </Link>
     </div>
     <div class="album-list">
@@ -23,14 +26,7 @@ import Button from '../shared/Button';
     </div>
 </template>
 
-<script>
-export default defineComponent({
-    name: 'Albums',
-    components: { AlbumItem, Link, Button, Icon },
-});
-</script>
-
-<style lang='scss'>
+<style lang='scss' scoped>
 @import '../styles/mixin';
 @import '../styles/variable';
 @import '../main.scss';
@@ -46,19 +42,24 @@ export default defineComponent({
 }
 
 .album-header {
+    margin-bottom: 30px;
+    align-items: center;
 
-    p {
+    h1 {
+        margin-bottom: 0;
+    }
+
+    .link {
         display: none;
+        text-decoration: underline;
     }
 
     @include on-tablet {
-        p {
-            display: block;
+        .icon {
+            display: none;
         }
-    }
 
-    @include on-desktop {
-        p {
+        .link {
             display: block;
         }
     }
