@@ -3,7 +3,7 @@ import { defineComponent, defineProps } from 'vue';
 
 defineProps({
     name: String,
-    user: String,
+    author: String,
     slug: String,
     date: String,
     community: Boolean,
@@ -17,7 +17,7 @@ defineProps({
 
 <script>
 export default defineComponent({
-    name: 'AlbumsItem',
+    name: 'AlbumItem',
 });
 </script>
 
