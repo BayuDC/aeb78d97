@@ -20,7 +20,7 @@ const routes = [
                 component: Home,
             },
             {
-                path: '/picture/new',
+                path: '/pictures/new',
                 component: PictureNew,
             },
         ],
