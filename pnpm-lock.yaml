@@ -4,11 +4,13 @@ specifiers:
   '@parcel/core': ^2.6.0
   '@parcel/transformer-sass': ^2.6.0
   '@parcel/transformer-vue': ^2.6.0
+  nanoid: ^4.0.0
   parcel: ^2.6.0
   vue: ^3.2.37
   vue-router: ^4.0.16
 
 dependencies:
+  nanoid: 4.0.0
   vue: 3.2.37
   vue-router: 4.0.16_vue@3.2.37
 
@@ -1773,6 +1775,12 @@ packages:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanoid/4.0.0:
+    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
 
   /node-addon-api/3.2.1:
     resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
