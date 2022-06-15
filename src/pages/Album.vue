@@ -1,4 +1,7 @@
 <script setup>
+import ContentHead from '../components/ContentHead.vue';
+import ContentBody from '../components/ContentBody.vue';
+
 import AlbumItem from '../components/AlbumItem';
 import Icon from '../shared/Icon';
 import Link from '../shared/Link';
@@ -7,29 +10,33 @@ import Link from '../shared/Link';
 <script>
 export default {
     name: 'Albums',
-    components: { AlbumItem, Link, Icon },
+    components: { ContentHead, ContentBody, AlbumItem, Link, Icon },
 };
 </script>
 
 <template>
-    <div class="flex album-header">
-        <h1>Albums</h1>
-
-        <Link to="/albums/new" class="ml-auto text-black">
-        <div class="link">Create Album+</div>
-        <Icon class="icon" name="add" />
-        </Link>
-    </div>
-    <div class="album-list">
-        <AlbumItem v-for='Album in Albums' class='light flex' :id='Albums.id' :author='Album.author' :name='Album.name'
-            :slug='Album.slug' :date='Album.date' :community='Album.community' />
-    </div>
+    <ContentHead title="Albums">
+        <Link to="/albums/new">Create Album+</Link>
+    </ContentHead>
+    <ContentBody>
+        <div class="album-list">
+            <AlbumItem
+                v-for="Album in Albums"
+                class="light flex"
+                :id="Albums.id"
+                :author="Album.author"
+                :name="Album.name"
+                :slug="Album.slug"
+                :date="Album.date"
+                :community="Album.community"
+            />
+        </div>
+    </ContentBody>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '../styles/mixin';
 @import '../styles/variable';
-@import '../main.scss';
 
 .album-list {
     display: grid;
@@ -38,30 +45,6 @@ export default {
 
     @include on-desktop {
         grid-template-columns: repeat(2, 2fr);
-    }
-}
-
-.album-header {
-    margin-bottom: 30px;
-    align-items: center;
-
-    h1 {
-        margin-bottom: 0;
-    }
-
-    .link {
-        display: none;
-        text-decoration: underline;
-    }
-
-    @include on-tablet {
-        .icon {
-            display: none;
-        }
-
-        .link {
-            display: block;
-        }
     }
 }
 </style>

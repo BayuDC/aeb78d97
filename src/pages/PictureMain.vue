@@ -1,10 +1,15 @@
 <script>
+import ContentHead from '../components/ContentHead.vue';
+import ContentBody from '../components/ContentBody.vue';
+
 import Link from '../shared/Link.vue';
 import Icon from '../shared/Icon.vue';
 
 export default {
     name: 'PictureMain',
     components: {
+        ContentHead,
+        ContentBody,
         Link,
         Icon,
     },
@@ -12,19 +17,12 @@ export default {
 </script>
 
 <template>
-    <section class="header">
-        <h1>Pictures</h1>
-        <Link to="/pictures/new">
-            <span class="text">Upload picture+</span>
-            <Icon class="icon" name="add" />
-        </Link>
-    </section>
+    <ContentHead title="Pictures">
+        <Link to="/pictures/new" class="link">Upload Picture+</Link>
+    </ContentHead>
+    <ContentBody>
+        <h1>Coming Soon</h1>
+    </ContentBody>
 </template>
 
-<style lang="scss" scoped>
-.header {
-    a {
-        margin-left: auto;
-    }
-}
-</style>
+<style lang="scss" scoped></style>
