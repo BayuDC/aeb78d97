@@ -1,41 +1,41 @@
 <script setup>
-import { defineComponent } from 'vue';
-import AlbumsItem from '../components/AlbumsItem';
+import AlbumItem from '../components/AlbumItem';
 import Icon from '../shared/Icon';
 import Link from '../shared/Link';
 </script>
 
+<script>
+export default {
+    name: 'Albums',
+    components: { AlbumItem, Link, Icon },
+};
+</script>
+
 <template>
-    <div class='flex mb-4'>
-        <h1 class='align-self-center'>Albums</h1>
+    <div class="flex album-header">
+        <h1>Albums</h1>
 
-        <Link to="/albums" class='ml-auto text-black flex album-header'>
-
-        <p class='align-self-center'>Create Albums</p>
-        <Icon class='align-self-center' name='add' />
-
+        <Link to="/albums/new" class="ml-auto text-black">
+            <div class="link">Create Album+</div>
+            <Icon class="icon" name="add" />
         </Link>
     </div>
     <div class="album-list">
-        <Link to="/" v-for='Album in Albums' type='button'>
-
-        <AlbumsItem :id='Albums.id' :user='Album.user' :name='Album.name' :slug='Album.slug' :date='Album.date'
-            :community='Album.community' />
-
+        <Link to="/" v-for="Album in Albums" type="button">
+            <AlbumItem
+                :id="Albums.id"
+                :user="Album.user"
+                :name="Album.name"
+                :slug="Album.slug"
+                :date="Album.date"
+                :community="Album.community"
+            />
         </Link>
     </div>
 </template>
 
-<script>
-export default defineComponent({
-    name: 'Albums',
-    components: { AlbumsItem, Link, Icon },
-});
-</script>
-
-<style lang='scss'>
+<style lang="scss" scoped>
 @import '../styles/mixin';
-@import '../styles/variable';
 
 .album-list {
     display: grid;
@@ -46,21 +46,22 @@ export default defineComponent({
         grid-template-columns: repeat(2, 2fr);
     }
 }
-
 .album-header {
+    margin-bottom: 30px;
+    align-items: center;
 
-    p {
+    h1 {
+        margin-bottom: 0;
+    }
+    .link {
         display: none;
+        text-decoration: underline;
     }
-
     @include on-tablet {
-        p {
-            display: block;
+        .icon {
+            display: none;
         }
-    }
-
-    @include on-desktop {
-        p {
+        .link {
             display: block;
         }
     }
