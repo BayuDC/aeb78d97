@@ -32,7 +32,7 @@ export default {
             <Button @click="toggleMenu" class="menu clear">
                 <Icon :name="isActive ? 'close' : 'menu'" />
             </Button>
-            <Navbar :isActive="isActive" />
+            <Navbar :isActive="isActive" :onClick="() => (isActive = false)" />
         </div>
     </header>
 </template>
@@ -46,6 +46,7 @@ header {
     padding: 0 20px;
     position: relative;
     background: $black;
+    z-index: 10;
 
     &.transparent {
         background: none;

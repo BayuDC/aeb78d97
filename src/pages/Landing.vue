@@ -51,7 +51,7 @@ export default {
         align-items: center;
         justify-content: center;
         color: $white;
-        z-index: 20;
+        z-index: 1;
 
         @include on-tablet {
             height: calc(100% - 100px);

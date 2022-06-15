@@ -5,6 +5,7 @@ export default {
     name: 'Navbar',
     props: {
         isActive: { type: Boolean, default: false },
+        onClick: { type: Function },
     },
     components: {
         Link,
@@ -15,9 +16,9 @@ export default {
 <template>
     <nav :class="{ active: isActive }">
         <ul>
-            <li><Link to="/albums">Albums</Link></li>
-            <li><Link to="/pictures">Pictures</Link></li>
-            <li><Link to="/login" type="button">Log In</Link></li>
+            <li><Link @click="onClick" to="/albums">Albums</Link></li>
+            <li><Link @click="onClick" to="/pictures">Pictures</Link></li>
+            <li><Link @click="onClick" to="/login" type="button">Log In</Link></li>
         </ul>
     </nav>
 </template>
