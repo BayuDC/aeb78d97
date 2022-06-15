@@ -5,7 +5,7 @@ export default {
     name: 'Input',
     props: {
         label: { type: String, required: true },
-        value: { type: String, default: '' },
+        error: { type: String, default: '' },
         required: { type: Boolean, default: false },
         modelValue: { type: String, default: '' },
     },
