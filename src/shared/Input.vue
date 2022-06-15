@@ -6,8 +6,8 @@ export default {
     props: {
         label: { type: String, required: true },
         value: { type: String, default: '' },
-        error: { type: String, default: '' },
         required: { type: Boolean, default: false },
+        modelValue: { type: String, default: '' },
     },
 
     data() {
@@ -22,7 +22,14 @@ export default {
 <template>
     <div class="input-field">
         <label :for="id">{{ label }} <span v-if="required">*</span></label>
-        <input type="text" :id="id" autocomplete="off" :required="required" />
+        <input
+            type="text"
+            :id="id"
+            autocomplete="off"
+            :required="required"
+            :value="modelValue"
+            @input="$emit('update:modelValue', $event.target.value)"
+        />
         <p>{{ error }}</p>
     </div>
 </template>
