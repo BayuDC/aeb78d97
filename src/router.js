@@ -3,7 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './pages/Home.vue';
 import Landing from './pages/Landing.vue';
 import Template from './pages/Template.vue';
+
 import Albums from './pages/Album.vue';
+import PictureNew from './pages/PictureNew.vue';
 
 const routes = [
     {
@@ -21,6 +23,10 @@ const routes = [
             {
                 path: '/albums',
                 component: Albums,
+            },
+            {
+                path: '/pictures/new',
+                component: PictureNew,
             },
         ],
     },

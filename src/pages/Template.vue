@@ -37,6 +37,7 @@ main {
     h1 {
         font-family: $poppins;
         font-size: 24px;
+        margin-bottom: 30px;
     }
 }
 </style>
