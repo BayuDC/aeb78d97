@@ -8,15 +8,18 @@ export default { name: 'App' };
 
 <style lang="scss">
 @import './styles/variable';
+@import 'main.scss';
 
 * {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: $fira-sans;
     min-width: 280px;
 }
+
 ul {
     list-style: none;
 }
