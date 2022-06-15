@@ -1,5 +1,14 @@
 <script setup>
-import { defineComponent } from 'vue';
+import { defineComponent, defineProps } from 'vue';
+
+defineProps({
+    name: String,
+    user: String,
+    slug: String,
+    date: String,
+    community: Boolean,
+});
+
 </script>
 
 <template>
