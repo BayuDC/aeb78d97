@@ -34,10 +34,34 @@ main {
             padding: 0 40px;
         }
     }
-    h1 {
-        font-family: $poppins;
-        font-size: 24px;
+
+    // TODO move to separeted file
+    section.header {
         margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-family: $poppins;
+            font-size: 24px;
+        }
+        a {
+            color: $black;
+
+            .text {
+                text-decoration: underline;
+                display: none;
+            }
+
+            @include on-tablet {
+                .icon {
+                    display: none;
+                }
+                .text {
+                    display: inline;
+                }
+            }
+        }
     }
 }
 </style>
