@@ -4,19 +4,25 @@ import ContentBody from '../components/ContentBody.vue';
 
 import AlbumItem from '../components/AlbumItem';
 import Icon from '../shared/Icon';
-import Link from '../shared/Link';
+import LinkDuo from '../shared/LinkDuo';
 </script>
 
 <script>
 export default {
     name: 'Albums',
-    components: { ContentHead, ContentBody, AlbumItem, Link, Icon },
+    components: {
+        ContentHead,
+        ContentBody,
+        AlbumItem,
+        LinkDuo,
+        Icon,
+    },
 };
 </script>
 
 <template>
     <ContentHead title="Albums">
-        <Link to="/albums/new">Create Album+</Link>
+        <LinkDuo to="/albums/new" icon="add">Create Album+</LinkDuo>
     </ContentHead>
     <ContentBody>
         <div class="album-list">

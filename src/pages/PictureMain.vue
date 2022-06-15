@@ -2,23 +2,21 @@
 import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
 
-import Link from '../shared/Link.vue';
-import Icon from '../shared/Icon.vue';
+import LinkDuo from '../shared/LinkDuo.vue';
 
 export default {
     name: 'PictureMain',
     components: {
         ContentHead,
         ContentBody,
-        Link,
-        Icon,
+        LinkDuo,
     },
 };
 </script>
 
 <template>
     <ContentHead title="Pictures">
-        <Link to="/pictures/new" class="link">Upload Picture+</Link>
+        <LinkDuo to="/pictures/new" icon="add">Upload Pictures+</LinkDuo>
     </ContentHead>
     <ContentBody>
         <h1>Coming Soon</h1>
