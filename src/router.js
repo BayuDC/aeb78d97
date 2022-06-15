@@ -21,7 +21,7 @@ const routes = [
             {
                 path: '/albums',
                 component: Albums,
-            }
+            },
         ],
     },
 ];
