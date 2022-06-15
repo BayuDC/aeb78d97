@@ -12,7 +12,9 @@ export default {
 </script>
 
 <template>
-    <h1>Upload Picture</h1>
+    <section class="header">
+        <h1>Upload Picture</h1>
+    </section>
     <form>
         <Input label="File" :required="true" error="File is to large" />
         <figure></figure>

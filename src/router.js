@@ -5,6 +5,7 @@ import Landing from './pages/Landing.vue';
 import Template from './pages/Template.vue';
 
 import Albums from './pages/Album.vue';
+import PictureMain from './pages/PictureMain.vue';
 import PictureNew from './pages/PictureNew.vue';
 
 const routes = [
@@ -27,6 +28,10 @@ const routes = [
             {
                 path: '/pictures/new',
                 component: PictureNew,
+            },
+            {
+                path: '/pictures',
+                component: PictureMain,
             },
         ],
     },
