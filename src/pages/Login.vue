@@ -11,14 +11,19 @@ export default {
         Input,
     },
     methods: {
-        onSubmit(e) {
-            console.log(this.email, this.password);
+        async onSubmit(e) {
+            const res = await this.$http.post('/auth/login', {
+                email: this.email,
+                password: this.password,
+            });
+
+            console.log(res.data);
         },
     },
     data() {
         return {
-            email: '',
-            password: '',
+            email: 'dev.bayudc@gmail.com',
+            password: 'Shirayuki39',
         };
     },
 };

@@ -19,8 +19,12 @@
     "parcel": "^2.6.0"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "buffer": "^6.0.3",
     "nanoid": "^4.0.0",
+    "process": "^0.11.10",
     "vue": "^3.2.37",
+    "vue-axios": "^3.4.1",
     "vue-router": "^4.0.16"
   }
 }
