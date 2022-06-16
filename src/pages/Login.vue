@@ -2,6 +2,7 @@
 import Header from '../components/Header.vue';
 import Button from '../shared/Button.vue';
 import Input from '../shared/Input.vue';
+import Alert from '../shared/Alert.vue';
 
 export default {
     name: 'Login',
@@ -9,21 +10,37 @@ export default {
         Header,
         Button,
         Input,
+        Alert,
     },
     methods: {
-        async onSubmit(e) {
-            const res = await this.$http.post('/auth/login', {
-                email: this.email,
-                password: this.password,
-            });
+        onSubmit(e) {
+            if (this.isLoading) return;
 
-            console.log(res.data);
+            this.message = '';
+            this.isLoading = true;
+
+            this.$http
+                .post('/auth/login', {
+                    email: this.email,
+                    password: this.password,
+                })
+                .then(res => {
+                    // do something
+                })
+                .catch(err => {
+                    this.message = err.response.data.message;
+                })
+                .finally(() => {
+                    this.isLoading = false;
+                });
         },
     },
     data() {
         return {
-            email: 'dev.bayudc@gmail.com',
-            password: 'Shirayuki39',
+            email: '',
+            password: '',
+            message: '',
+            isLoading: false,
         };
     },
 };
@@ -36,7 +53,8 @@ export default {
             <h1>Log In to Waifuseum</h1>
             <Input v-model="email" label="Email" :required="true" />
             <Input v-model="password" label="Password" :required="true" type="password" />
-            <Button class="dark">Log In</Button>
+            <Alert v-if="message" class="error">{{ message }}</Alert>
+            <Button class="dark">Log In{{ isLoading ? '...' : '' }}</Button>
         </form>
     </div>
 </template>
