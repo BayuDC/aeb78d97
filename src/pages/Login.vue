@@ -10,16 +10,27 @@ export default {
         Button,
         Input,
     },
+    methods: {
+        onSubmit(e) {
+            console.log(this.email, this.password);
+        },
+    },
+    data() {
+        return {
+            email: '',
+            password: '',
+        };
+    },
 };
 </script>
 
 <template>
     <Header />
     <div class="container">
-        <form class="login-form">
+        <form class="login-form" @submit.prevent="onSubmit">
             <h1>Log In to Waifuseum</h1>
-            <Input label="Email" :required="true" />
-            <Input label="Password" :required="true" />
+            <Input v-model="email" label="Email" :required="true" />
+            <Input v-model="password" label="Password" :required="true" type="password" />
             <Button class="dark">Log In</Button>
         </form>
     </div>

@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 export default {
     name: 'Input',
     props: {
+        type: { type: String, default: 'text' },
         label: { type: String, required: true },
         error: { type: String, default: '' },
         required: { type: Boolean, default: false },
@@ -23,12 +24,12 @@ export default {
     <div class="input-field">
         <label :for="id">{{ label }} <span v-if="required">*</span></label>
         <input
-            type="text"
+            :type="type"
             :id="id"
-            autocomplete="off"
             :required="required"
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
+            autocomplete="off"
         />
         <p>{{ error }}</p>
     </div>
