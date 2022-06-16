@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './pages/Home.vue';
 import Landing from './pages/Landing.vue';
 import Template from './pages/Template.vue';
+import Login from './pages/Login.vue';
 
 import Albums from './pages/Album.vue';
 import PictureMain from './pages/PictureMain.vue';
@@ -34,6 +35,10 @@ const routes = [
                 component: PictureMain,
             },
         ],
+    },
+    {
+        path: '/login',
+        component: Login,
     },
 ];
 

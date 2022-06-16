@@ -22,5 +22,3 @@ export default {
         <h1>Coming Soon</h1>
     </ContentBody>
 </template>
-
-<style lang="scss" scoped></style>
