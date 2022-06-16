@@ -1,10 +1,15 @@
 <script>
+import ContentHead from '../components/ContentHead.vue';
+import ContentBody from '../components/ContentBody.vue';
+
 import Input from '../shared/Input.vue';
 import Button from '../shared/Button.vue';
 
 export default {
     name: 'PictureNew',
     components: {
+        ContentHead,
+        ContentBody,
         Input,
         Button,
     },
@@ -12,20 +17,20 @@ export default {
 </script>
 
 <template>
-    <section class="header">
-        <h1>Upload Picture</h1>
-    </section>
-    <form>
-        <Input label="File" :required="true" error="File is to large" />
-        <figure></figure>
-        <Input label="Album" :required="true" class="album" />
-        <Input label="Source" />
+    <ContentHead title="Upload Picture" />
+    <ContentBody>
+        <form>
+            <Input label="File" :required="true" error="File is too large" />
+            <figure></figure>
+            <Input label="Album" :required="true" class="album" />
+            <Input label="Source" />
 
-        <div class="buttons">
-            <Button class="dark">Save</Button>
-            <Button class="light">Save and Stay Here</Button>
-        </div>
-    </form>
+            <div class="buttons">
+                <Button class="dark">Save</Button>
+                <Button class="light">Save and Stay Here</Button>
+            </div>
+        </form>
+    </ContentBody>
 </template>
 
 <style lang="scss" scoped>
