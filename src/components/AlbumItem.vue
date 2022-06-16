@@ -38,7 +38,6 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/variable';
 @import '../styles/mixin';
-@import '../main';
 
 .album-item {
     padding: 20px;
