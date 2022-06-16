@@ -21,7 +21,7 @@ export default {
 
 <template>
     <div class="album-item">
-        <div class="flex mb-10">
+        <div class="flex mb-10 gap-20">
             <h1 class="name">
                 # {{ name }}
                 <Badge v-if="community">Community</Badge>

@@ -3,6 +3,7 @@ import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
 
 import AlbumItem from '../components/AlbumItem.vue';
+import AlbumList from '../components/AlbumList.vue';
 import LinkDuo from '../shared/LinkDuo.vue';
 </script>
 
@@ -13,6 +14,7 @@ export default {
         ContentHead,
         ContentBody,
         AlbumItem,
+        AlbumList,
         LinkDuo,
     },
 };
@@ -23,28 +25,14 @@ export default {
         <LinkDuo to="/albums/new" icon="add">Create Album+</LinkDuo>
     </ContentHead>
     <ContentBody>
-        <div class="album-list">
+        <AlbumList>
             <AlbumItem name="Hololive" createdBy="Anonymous" createdAt="12/12/2020" :community="true" />
             <AlbumItem
-                name="Genshin Impact is Full of Kawaii Waifu and It's Make me Horny as Fuck"
+                name="Genshin Impact is Full of Kawaii Waifu and It's Make Me Horny as Fuck"
                 createdBy="Anonymous"
                 createdAt="12/12/2020"
                 :community="false"
             />
-        </div>
+        </AlbumList>
     </ContentBody>
 </template>
-
-<style lang="scss" scoped>
-@import '../styles/mixin';
-@import '../styles/variable';
-
-.album-list {
-    display: grid;
-    grid-gap: 30px;
-
-    @include on-desktop {
-        grid-template-columns: repeat(2, 2fr);
-    }
-}
-</style>

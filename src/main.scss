@@ -5,6 +5,24 @@
         flex-direction: column;
     }
 }
+.gap {
+    &-20 {
+        gap: 20px;
+    }
+}
+
+.mt {
+    &-auto {
+        margin-top: auto;
+    }
+}
+.mb {
+    &-10 {
+        margin-bottom: 10px;
+    }
+}
+
+// * =====================================
 
 .justify-content-between {
     justify-content: space-between;
@@ -45,15 +63,4 @@
 
 .w-100 {
     width: 100%;
-}
-
-.mt {
-    &-auto {
-        margin-top: auto;
-    }
-}
-.mb {
-    &-10 {
-        margin-bottom: 10px;
-    }
 }
