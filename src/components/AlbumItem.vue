@@ -1,64 +1,105 @@
-<script setup>
-import { defineComponent, defineProps } from 'vue';
-import Link from '../shared/Link';
-import Button from '../shared/Button';
+<script>
+import Link from '../shared/Link.vue';
+import Button from '../shared/Button.vue';
+import Badge from '../shared/Bagde.vue';
 
-defineProps({
-    name: String,
-    author: String,
-    slug: String,
-    date: String,
-    community: Boolean,
-});
-
+export default {
+    name: 'AlbumItem',
+    components: {
+        Link,
+        Button,
+        Badge,
+    },
+    props: {
+        name: String,
+        createdBy: String,
+        createdAt: String,
+        community: Boolean,
+    },
+};
 </script>
 
 <template>
     <div class="album-item">
-        <div class="flex flex-col justify-content-between p-4 w-100">
-            <div class="flex align-item-center">
-                <Link to='/' class='text-black align-self-center'>
-                <h2 class='flex align-item-center'>
-                    # {{ name }}
-                    <Button class='dark community mx-2' v-if='community'>Community</Button>
-                </h2>
-                </Link>
-                <h2 class='ml-auto'>(69)</h2>
-            </div>
-            <div class='flex'>
-                <div class="flex">
-                    <span class='mr-1'>
-                        Created by
-                    </span>
-                    <Link to="/" class='text-black'> {{ author }} </Link>
-                </div>
-                <div class='ml-auto'>
-                    <span>
-                        {{ date }}
-                    </span>
-                </div>
-            </div>
+        <div class="flex mb-10">
+            <h1 class="name">
+                # {{ name }}
+                <Badge v-if="community">Community</Badge>
+            </h1>
+            <div class="count">(69)</div>
+        </div>
+        <div class="flex mt-auto">
+            <div class="author">Anonymous</div>
+            <div class="date">22/02/20222</div>
         </div>
     </div>
 </template>
 
-<script>
-export default defineComponent({
-    name: 'AlbumItem',
-    components: { Link, Button },
-});
-</script>
-
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '../styles/variable';
-@import '../main.scss';
+@import '../styles/mixin';
+@import '../main';
 
 .album-item {
+    padding: 20px;
     background-color: $yellow;
-}
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-.community {
-    font-style: italic;
-    padding: 0.25rem;
+    .badge {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+        transform: translateY(50%);
+
+        @include on-tablet {
+            position: static;
+            transform: translateY(-3px);
+        }
+    }
+
+    .name,
+    .count {
+        font-family: $poppins;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .count {
+        margin-left: auto;
+    }
+
+    .author,
+    .date {
+        font-size: 14px;
+    }
+
+    .author {
+        font-weight: 700;
+
+        &::after {
+            content: '·';
+            margin: 0 4px;
+
+            @include on-tablet {
+                display: none;
+            }
+        }
+        &::before {
+            content: 'Created By ';
+            font-weight: 400;
+            display: none;
+
+            @include on-tablet {
+                display: inline;
+            }
+        }
+    }
+    .date {
+        @include on-tablet {
+            margin-left: auto;
+        }
+    }
 }
 </style>

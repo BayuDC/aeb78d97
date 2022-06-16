@@ -1,17 +1,16 @@
-
 .flex {
     display: flex;
-}
 
-.flex-col {
-    flex-direction: column;
+    &-col {
+        flex-direction: column;
+    }
 }
 
 .justify-content-between {
     justify-content: space-between;
 }
 
-.align-item-center{
+.align-item-center {
     align-items: center;
 }
 
@@ -44,8 +43,17 @@
     margin-bottom: 2rem;
 }
 
-// * done
-
 .w-100 {
     width: 100%;
+}
+
+.mt {
+    &-auto {
+        margin-top: auto;
+    }
+}
+.mb {
+    &-10 {
+        margin-bottom: 10px;
+    }
 }

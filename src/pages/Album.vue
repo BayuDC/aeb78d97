@@ -2,20 +2,18 @@
 import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
 
-import AlbumItem from '../components/AlbumItem';
-import Icon from '../shared/Icon';
-import LinkDuo from '../shared/LinkDuo';
+import AlbumItem from '../components/AlbumItem.vue';
+import LinkDuo from '../shared/LinkDuo.vue';
 </script>
 
 <script>
 export default {
-    name: 'Albums',
+    name: 'Album',
     components: {
         ContentHead,
         ContentBody,
         AlbumItem,
         LinkDuo,
-        Icon,
     },
 };
 </script>
@@ -26,15 +24,12 @@ export default {
     </ContentHead>
     <ContentBody>
         <div class="album-list">
+            <AlbumItem name="Hololive" createdBy="Anonymous" createdAt="12/12/2020" :community="true" />
             <AlbumItem
-                v-for="Album in Albums"
-                class="light flex"
-                :id="Albums.id"
-                :author="Album.author"
-                :name="Album.name"
-                :slug="Album.slug"
-                :date="Album.date"
-                :community="Album.community"
+                name="Genshin Impact is Full of Kawaii Waifu and It's Make me Horny as Fuck"
+                createdBy="Anonymous"
+                createdAt="12/12/2020"
+                :community="false"
             />
         </div>
     </ContentBody>
@@ -46,8 +41,7 @@ export default {
 
 .album-list {
     display: grid;
-    grid-auto-rows: minmax(200px, auto);
-    grid-gap: 1rem;
+    grid-gap: 30px;
 
     @include on-desktop {
         grid-template-columns: repeat(2, 2fr);
