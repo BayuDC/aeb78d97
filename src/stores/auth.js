@@ -25,5 +25,8 @@ export default defineStore('auth', {
             }
             this.isLoading = false;
         },
+        unload() {
+            this.user = undefined;
+        },
     },
 });

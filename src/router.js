@@ -5,6 +5,7 @@ import Home from './pages/Home.vue';
 import Landing from './pages/Landing.vue';
 import Template from './pages/Template.vue';
 import Login from './pages/Login.vue';
+import Logout from './pages/Logout.vue';
 
 import Albums from './pages/Album.vue';
 import PictureMain from './pages/PictureMain.vue';
@@ -29,6 +30,10 @@ const routes = [
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/logout',
+        component: Logout,
     },
 ];
 
