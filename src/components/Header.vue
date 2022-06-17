@@ -19,6 +19,9 @@ export default {
         toggleMenu() {
             this.isActive = !this.isActive;
         },
+        closeMenu() {
+            this.isActive = false;
+        },
     },
 };
 </script>
@@ -32,7 +35,7 @@ export default {
             <Button @click="toggleMenu" class="menu clear">
                 <Icon :name="isActive ? 'close' : 'menu'" />
             </Button>
-            <Navbar :isActive="isActive" :onClick="() => (isActive = false)" />
+            <Navbar :isActive="isActive" @click="closeMenu" />
         </div>
     </header>
 </template>

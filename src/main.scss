@@ -1,6 +1,20 @@
 @import './src/styles/mixin';
 @import './src/styles/variable';
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $fira-sans;
+    min-width: 280px;
+}
+
+ul {
+    list-style: none;
+}
+
 .flex {
     display: flex;
 

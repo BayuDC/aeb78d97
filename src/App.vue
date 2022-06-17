@@ -1,26 +1,22 @@
 <script>
-export default { name: 'App' };
+import { mapState } from 'pinia';
+import useAuth from './stores/auth';
+import Loading from './components/Loading.vue';
+
+export default {
+    name: 'App',
+    components: { Loading },
+    computed: {
+        ...mapState(useAuth, ['isLoading']),
+    },
+};
 </script>
 
 <template>
-    <router-view />
+    <Loading v-if="isLoading" />
+    <router-view v-else />
 </template>
 
 <style lang="scss">
 @import './styles/variable';
-@import 'main.scss';
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: $fira-sans;
-    min-width: 280px;
-}
-
-ul {
-    list-style: none;
-}
 </style>
