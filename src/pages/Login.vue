@@ -13,8 +13,8 @@ export default {
     },
     data() {
         return {
-            email: 'dev.bayudc@gmail.com',
-            password: 'Shirayuki39',
+            email: '',
+            password: '',
             message: '',
             isLoading: false,
         };
