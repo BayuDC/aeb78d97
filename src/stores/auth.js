@@ -5,10 +5,17 @@ export default defineStore('auth', {
     state: () => {
         return {
             user: undefined,
+            isLoading: true,
         };
+    },
+    getters: {
+        check: state => {
+            return state.user != undefined;
+        },
     },
     actions: {
         async load() {
+            this.isLoading = true;
             try {
                 const res = await axios.get('/auth/me');
 
@@ -16,6 +23,7 @@ export default defineStore('auth', {
             } catch {
                 this.user = undefined;
             }
+            this.isLoading = false;
         },
     },
 });

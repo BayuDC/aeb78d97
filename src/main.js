@@ -11,4 +11,4 @@ app.use(router);
 app.use(VueAxios, axios);
 app.use(createPinia());
 
-app.mount('#app');
+app.mount(document.getElementById('app'));

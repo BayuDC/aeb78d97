@@ -1,11 +1,13 @@
 <script>
+import ContentHead from '../components/ContentHead.vue';
 export default {
     name: 'Home',
+    components: {
+        ContentHead,
+    },
 };
 </script>
 
 <template>
-    <section class="header">
-        <h1>Home</h1>
-    </section>
+    <ContentHead title="Home" />
 </template>
