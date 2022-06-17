@@ -30,10 +30,12 @@ const routes = [
     {
         path: '/login',
         component: Login,
+        meta: { guest: true },
     },
     {
         path: '/logout',
         component: Logout,
+        meta: { auth: true },
     },
 ];
 
@@ -45,8 +47,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const auth = useAuth();
     const guard = () => {
-        if (to.meta.auth && !auth.user) {
+        if (to.meta.auth && !auth.check) {
             return next({ path: '/login' });
+        }
+        if (to.meta.guest && auth.check) {
+            return next({ path: '/home' });
         }
 
         next(true);
