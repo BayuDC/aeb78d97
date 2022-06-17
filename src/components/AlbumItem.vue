@@ -1,7 +1,7 @@
 <script>
 import Link from '../shared/Link.vue';
 import Button from '../shared/Button.vue';
-import Badge from '../shared/Bagde.vue';
+import Badge from '../shared/Badge.vue';
 
 export default {
     name: 'AlbumItem',
@@ -65,6 +65,7 @@ export default {
         font-size: 20px;
         line-height: 28px;
     }
+
     .count {
         margin-left: auto;
     }
@@ -85,6 +86,7 @@ export default {
                 display: none;
             }
         }
+
         &::before {
             content: 'Created By ';
             font-weight: 400;
@@ -95,6 +97,7 @@ export default {
             }
         }
     }
+
     .date {
         @include on-tablet {
             margin-left: auto;
