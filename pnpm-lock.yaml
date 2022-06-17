@@ -8,6 +8,7 @@ specifiers:
   buffer: ^6.0.3
   nanoid: ^4.0.0
   parcel: ^2.6.0
+  pinia: ^2.0.14
   process: ^0.11.10
   vue: ^3.2.37
   vue-axios: ^3.4.1
@@ -17,6 +18,7 @@ dependencies:
   axios: 0.27.2
   buffer: 6.0.3
   nanoid: 4.0.0
+  pinia: 2.0.14_vue@3.2.37
   process: 0.11.10
   vue: 3.2.37
   vue-axios: 3.4.1_axios@0.27.2+vue@3.2.37
@@ -1970,6 +1972,23 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
+  /pinia/2.0.14_vue@3.2.37:
+    resolution: {integrity: sha512-0nPuZR4TetT/WcLN+feMSjWJku3SQU7dBbXC6uw+R6FLQJCsg+/0pzXyD82T1FmAYe0lsx+jnEDQ1BLgkRKlxA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.1.4
+      vue: 3.2.37
+      vue-demi: 0.13.1_vue@3.2.37
+    dev: false
+
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
@@ -2166,6 +2185,21 @@ packages:
       vue: ^3.0.0 || ^2.0.0
     dependencies:
       axios: 0.27.2
+      vue: 3.2.37
+    dev: false
+
+  /vue-demi/0.13.1_vue@3.2.37:
+    resolution: {integrity: sha512-xmkJ56koG3ptpLnpgmIzk9/4nFf4CqduSJbUM0OdPoU87NwRuZ6x49OLhjSa/fC15fV+5CbEnrxU4oyE022svg==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
       vue: 3.2.37
     dev: false
 

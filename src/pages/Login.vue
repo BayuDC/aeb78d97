@@ -1,4 +1,6 @@
 <script>
+import useAuth from '../stores/auth';
+
 import Header from '../components/Header.vue';
 import Button from '../shared/Button.vue';
 import Input from '../shared/Input.vue';
@@ -6,11 +8,16 @@ import Alert from '../shared/Alert.vue';
 
 export default {
     name: 'Login',
-    components: {
-        Header,
-        Button,
-        Input,
-        Alert,
+    setup() {
+        return { auth: useAuth() };
+    },
+    data() {
+        return {
+            email: 'dev.bayudc@gmail.com',
+            password: 'Shirayuki39',
+            message: '',
+            isLoading: false,
+        };
     },
     methods: {
         onSubmit(e) {
@@ -24,8 +31,9 @@ export default {
                     email: this.email,
                     password: this.password,
                 })
-                .then(res => {
-                    // do something
+                .then(async res => {
+                    await this.auth.load();
+                    this.$router.replace('/home');
                 })
                 .catch(err => {
                     this.message = err.response.data.message;
@@ -35,13 +43,11 @@ export default {
                 });
         },
     },
-    data() {
-        return {
-            email: '',
-            password: '',
-            message: '',
-            isLoading: false,
-        };
+    components: {
+        Header,
+        Button,
+        Input,
+        Alert,
     },
 };
 </script>
@@ -51,8 +57,10 @@ export default {
     <div class="container">
         <form class="login-form" @submit.prevent="onSubmit">
             <h1>Log In to Waifuseum</h1>
-            <Input v-model="email" label="Email" :required="true" />
-            <Input v-model="password" label="Password" :required="true" type="password" />
+
+            <Input v-model.lazy="email" label="Email" :required="true" />
+            <Input v-model.lazy="password" label="Password" :required="true" type="password" />
+
             <Alert v-if="message" class="error">{{ message }}</Alert>
             <Button class="dark">Log In{{ isLoading ? '...' : '' }}</Button>
         </form>
