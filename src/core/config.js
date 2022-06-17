@@ -1,1 +1,1 @@
-export const apiUrl = 'http://api.waifuseum.test';
+export const apiUrl = 'https://api.waifuseum.my.id';
