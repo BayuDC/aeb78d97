@@ -10,10 +10,13 @@ export default {
         };
     },
     created() {
-        this.$http.post('/auth/logout').finally(() => {
-            this.auth.unload();
-            this.$router.replace('/');
-        });
+        this.$http
+            .post('/auth/logout')
+            .catch(() => {})
+            .finally(() => {
+                this.auth.unload();
+                this.$router.replace('/');
+            });
     },
     components: { Loading },
 };
