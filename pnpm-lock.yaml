@@ -11,7 +11,6 @@ specifiers:
   pinia: ^2.0.14
   process: ^0.11.10
   vue: ^3.2.37
-  vue-axios: ^3.4.1
   vue-router: ^4.0.16
 
 dependencies:
@@ -21,7 +20,6 @@ dependencies:
   pinia: 2.0.14_vue@3.2.37
   process: 0.11.10
   vue: 3.2.37
-  vue-axios: 3.4.1_axios@0.27.2+vue@3.2.37
   vue-router: 4.0.16_vue@3.2.37
 
 devDependencies:
@@ -2177,16 +2175,6 @@ packages:
   /v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
     dev: true
-
-  /vue-axios/3.4.1_axios@0.27.2+vue@3.2.37:
-    resolution: {integrity: sha512-8YZYUOQrBEJktxoQtrM4rr2LfVcDaWfJqv8MqtLlgLlkuBvCYKFSZSo6AXQ4YcCzdgccDqstmuaEh68lcH9xWA==}
-    peerDependencies:
-      axios: '>= 0.20.0'
-      vue: ^3.0.0 || ^2.0.0
-    dependencies:
-      axios: 0.27.2
-      vue: 3.2.37
-    dev: false
 
   /vue-demi/0.13.1_vue@3.2.37:
     resolution: {integrity: sha512-xmkJ56koG3ptpLnpgmIzk9/4nFf4CqduSJbUM0OdPoU87NwRuZ6x49OLhjSa/fC15fV+5CbEnrxU4oyE022svg==}
