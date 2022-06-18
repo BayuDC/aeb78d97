@@ -4,6 +4,36 @@ import Button from '../shared/Button.vue';
 
 export default {
     name: 'PictureForm',
+    data() {
+        return {
+            stay: false,
+            errors: {},
+            file: '',
+            album: '',
+            source: '',
+        };
+    },
+    methods: {
+        onSubmit() {
+            this.errors = {};
+            this.$http
+                .post('/pictures', {
+                    fileUrl: this.file,
+                    album: this.album,
+                    source: this.source,
+                })
+                .then(res => {
+                    // Do something
+
+                    if (!this.stay) this.$router.push('/pictures');
+                })
+                .catch(err => {
+                    // Do something
+
+                    this.errors = err.response.data.details;
+                });
+        },
+    },
     components: {
         Input,
         Button,
@@ -12,15 +42,15 @@ export default {
 </script>
 
 <template>
-    <form class="picture-form">
-        <Input label="File" :required="true" error="File is too large" />
+    <form class="picture-form" @submit.prevent="onSubmit">
+        <Input v-model="file" label="File" :required="true" :error="errors.file" />
         <figure></figure>
-        <Input label="Album" :required="true" class="album" />
-        <Input label="Source" />
+        <Input v-model="album" label="Album" :required="true" :error="errors.album" class="album" />
+        <Input v-model="source" label="Source" :error="errors.source" />
 
         <div class="buttons">
-            <Button class="dark">Save</Button>
-            <Button class="light">Save and Stay Here</Button>
+            <Button @click="() => (stay = false)" class="dark">Save</Button>
+            <Button @click="() => (stay = true)" class="light">Save and Stay Here</Button>
         </div>
     </form>
 </template>
