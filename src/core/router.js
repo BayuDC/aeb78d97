@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory, START_LOCATION } from 'vue-router';
-import useAuth from './stores/auth';
+import useAuth from '../stores/auth';
 
-import Home from './pages/Home.vue';
-import Landing from './pages/Landing.vue';
-import Template from './pages/Template.vue';
-import Login from './pages/Login.vue';
-import Logout from './pages/Logout.vue';
+import Home from '../pages/Home.vue';
+import Landing from '../pages/Landing.vue';
+import Template from '../pages/Template.vue';
+import Login from '../pages/Login.vue';
+import Logout from '../pages/Logout.vue';
 
-import Albums from './pages/Album.vue';
-import PictureMain from './pages/PictureMain.vue';
-import PictureNew from './pages/PictureNew.vue';
+import Albums from '../pages/Album.vue';
+import PictureMain from '../pages/PictureMain.vue';
+import PictureNew from '../pages/PictureNew.vue';
 
 const routes = [
     { path: '/', component: Landing },
