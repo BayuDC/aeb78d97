@@ -1,11 +1,18 @@
 <script>
+import LoadEffect from '../shared/LoadEffect.vue';
+
 export default {
     name: 'Loading',
+    components: {
+        LoadEffect,
+    },
 };
 </script>
 
 <template>
-    <div class="loading">Loading</div>
+    <div class="loading">
+        <LoadEffect>Loading</LoadEffect>
+    </div>
 </template>
 
 <style lang="scss">
@@ -14,25 +21,5 @@ export default {
     font-family: $poppins;
     font-size: 36px;
     padding: 20px;
-
-    &::after {
-        content: '';
-        animation: 1.2s loading infinite;
-    }
-}
-
-@keyframes loading {
-    25% {
-        content: '';
-    }
-    50% {
-        content: '.';
-    }
-    75% {
-        content: '..';
-    }
-    100% {
-        content: '...';
-    }
 }
 </style>
