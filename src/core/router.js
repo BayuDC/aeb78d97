@@ -7,7 +7,7 @@ import Template from '../pages/Template.vue';
 import Login from '../pages/Login.vue';
 import Logout from '../pages/Logout.vue';
 
-import Album from '../pages/Album.vue';
+import AlbumMain from '../pages/AlbumMain.vue';
 import PictureMain from '../pages/PictureMain.vue';
 import PictureNew from '../pages/PictureNew.vue';
 
@@ -18,7 +18,7 @@ const routes = [
         component: Template,
         children: [
             { path: '/home', component: Home },
-            { path: '/albums', component: Album },
+            { path: '/albums', component: AlbumMain },
             { path: '/pictures', component: PictureMain },
             {
                 path: '/pictures/new',
