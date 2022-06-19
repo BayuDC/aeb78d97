@@ -13,9 +13,8 @@ export default {
 </script>
 
 <template>
-    <Loading />
-    <!-- <Loading v-if="isLoading" />
-    <router-view v-else /> -->
+    <Loading v-if="isLoading" />
+    <router-view v-else />
 </template>
 
 <style lang="scss">

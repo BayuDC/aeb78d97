@@ -5,6 +5,7 @@ import Header from '../components/Header.vue';
 import Button from '../shared/Button.vue';
 import Input from '../shared/Input.vue';
 import Alert from '../shared/Alert.vue';
+import LoadEffect from '../shared/LoadEffect.vue';
 
 export default {
     name: 'Login',
@@ -50,6 +51,7 @@ export default {
         Button,
         Input,
         Alert,
+        LoadEffect,
     },
 };
 </script>
@@ -64,7 +66,9 @@ export default {
             <Input v-model.lazy="password" label="Password" :required="true" type="password" />
 
             <Alert v-if="message" class="error no-border">{{ message }}</Alert>
-            <Button class="dark">Log In{{ loading ? '...' : '' }}</Button>
+            <Button class="dark">
+                <LoadEffect :stop="!loading">Log In</LoadEffect>
+            </Button>
         </form>
     </div>
 </template>
