@@ -1,6 +1,7 @@
 <script>
 import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
+import ComingSoon from '../components/ComingSoon.vue';
 
 import LinkDuo from '../shared/LinkDuo.vue';
 
@@ -10,6 +11,7 @@ export default {
         ContentHead,
         ContentBody,
         LinkDuo,
+        ComingSoon,
     },
 };
 </script>
@@ -19,6 +21,6 @@ export default {
         <LinkDuo to="/pictures/new" icon="add">Upload Pictures+</LinkDuo>
     </ContentHead>
     <ContentBody>
-        <h1>Coming Soon</h1>
+        <ComingSoon />
     </ContentBody>
 </template>

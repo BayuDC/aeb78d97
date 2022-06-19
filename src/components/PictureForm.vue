@@ -2,6 +2,7 @@
 import Input from '../shared/Input.vue';
 import Button from '../shared/Button.vue';
 import Alert from '../shared/Alert.vue';
+import LoadEffect from '../shared/LoadEffect.vue';
 
 export default {
     name: 'PictureForm',
@@ -20,8 +21,9 @@ export default {
         onSubmit() {
             if (this.loading) return;
 
+            const stay = this.stay;
+
             this.errors = {};
-            this.alert = { message: 'Loading...' };
             this.loading = true;
 
             this.$http
@@ -36,7 +38,7 @@ export default {
                         message: res.data.message || res.statusText,
                     };
 
-                    if (!this.stay) this.$router.push('/pictures');
+                    if (!stay) this.$router.push('/pictures');
                 })
                 .catch(err => {
                     const res = err.response;
@@ -56,6 +58,7 @@ export default {
         Input,
         Button,
         Alert,
+        LoadEffect,
     },
 };
 </script>
@@ -69,7 +72,8 @@ export default {
         <Input v-model="album" label="Album" :required="true" :error="errors.album" class="album" />
         <Input v-model="source" label="Source" :error="errors.source" class="source" />
 
-        <Alert v-if="alert.message" :class="[alert.type]">{{ alert.message }}</Alert>
+        <Alert v-if="loading"><LoadEffect>Loading</LoadEffect></Alert>
+        <Alert v-else-if="alert.message" :class="[alert.type]">{{ alert.message }}</Alert>
 
         <div class="buttons">
             <Button @click="() => (stay = false)" class="dark">Save</Button>

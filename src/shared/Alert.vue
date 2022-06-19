@@ -29,5 +29,9 @@ export default {
         color: $green;
         border-color: $green;
     }
+
+    &.no-border {
+        border: none;
+    }
 }
 </style>

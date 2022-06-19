@@ -21,6 +21,7 @@ export default {
 <template>
     <nav :class="{ active: isActive }">
         <ul>
+            <li><Link @click="$emit('click')" to="/home">Home</Link></li>
             <li><Link @click="$emit('click')" to="/albums">Albums</Link></li>
             <li><Link @click="$emit('click')" to="/pictures">Pictures</Link></li>
 
