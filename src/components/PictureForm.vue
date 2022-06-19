@@ -1,6 +1,7 @@
 <script>
 import Input from '../shared/Input.vue';
 import Button from '../shared/Button.vue';
+import Alert from '../shared/Alert.vue';
 
 export default {
     name: 'PictureForm',
@@ -37,6 +38,7 @@ export default {
     components: {
         Input,
         Button,
+        Alert,
     },
 };
 </script>
@@ -44,10 +46,13 @@ export default {
 <template>
     <form class="picture-form" @submit.prevent="onSubmit">
         <Input v-model="file" label="File" :required="true" :error="errors.file" />
-        <figure></figure>
+        <figure>
+            <img />
+        </figure>
         <Input v-model="album" label="Album" :required="true" :error="errors.album" class="album" />
-        <Input v-model="source" label="Source" :error="errors.source" />
+        <Input v-model="source" label="Source" :error="errors.source" class="source" />
 
+        <Alert class="error">Someting went wrong</Alert>
         <div class="buttons">
             <Button @click="() => (stay = false)" class="dark">Save</Button>
             <Button @click="() => (stay = true)" class="light">Save and Stay Here</Button>
@@ -57,6 +62,8 @@ export default {
 
 <style lang="scss">
 @import '../styles/mixin';
+@import '../styles/variable';
+
 .picture-form {
     display: grid;
     grid-template-columns: 1fr;
@@ -74,7 +81,7 @@ export default {
             grid-column: 2;
         }
         figure {
-            grid-row: 2 / 5;
+            grid-row: 2 / 6;
         }
     }
     @include on-desktop {
@@ -85,19 +92,30 @@ export default {
         }
         .buttons {
             grid-column: 1;
-            grid-row: 4;
+            grid-row: 5;
         }
         figure {
             grid-column: 2;
-            grid-row: 1 / 6;
+            grid-row: 1 / 7;
         }
     }
+    .alert {
+        margin: 20px 0;
+    }
 
+    .source {
+        margin-bottom: 0;
+    }
     .buttons {
-        margin-top: 10px;
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+    }
+    figure img {
+        margin-bottom: 20px;
+        width: 100%;
+        height: 600px;
+        background: rgba($color: $blue, $alpha: 0.2);
     }
 }
 </style>
