@@ -38,8 +38,8 @@ export default {
         bottom: 0;
 
         background-size: cover;
-        background-position-y: center;
-        background-image: url('../assets/background.jpg');
+        background-position: center;
+        background-image: url('../assets/background.webp');
         opacity: 0.25;
     }
 
