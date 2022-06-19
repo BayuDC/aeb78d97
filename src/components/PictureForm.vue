@@ -47,12 +47,12 @@ export default {
     <form class="picture-form" @submit.prevent="onSubmit">
         <Input v-model="file" label="File" :required="true" :error="errors.file" />
         <figure>
-            <img />
+            <!-- <img /> -->
         </figure>
         <Input v-model="album" label="Album" :required="true" :error="errors.album" class="album" />
         <Input v-model="source" label="Source" :error="errors.source" class="source" />
 
-        <Alert class="error">Someting went wrong</Alert>
+        <Alert class="">Loading...</Alert>
         <div class="buttons">
             <Button @click="() => (stay = false)" class="dark">Save</Button>
             <Button @click="() => (stay = true)" class="light">Save and Stay Here</Button>
@@ -114,7 +114,7 @@ export default {
     figure img {
         margin-bottom: 20px;
         width: 100%;
-        height: 600px;
+        height: 200px;
         background: rgba($color: $blue, $alpha: 0.2);
     }
 }
