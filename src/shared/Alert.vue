@@ -1,6 +1,7 @@
 <script>
 export default {
     name: 'Alert',
+    props: ['type'],
 };
 </script>
 
@@ -15,12 +16,18 @@ export default {
 
 .alert {
     text-align: center;
-    padding: 10px 0;
-    color: $black;
+    padding: 10px;
     font-weight: 500;
+    color: $blue;
+    border: $blue 1px solid;
 
     &.error {
         color: $red;
+        border-color: $red;
+    }
+    &.success {
+        color: $green;
+        border-color: $green;
     }
 }
 </style>

@@ -1,17 +1,14 @@
 <script>
 import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
-
-import Input from '../shared/Input.vue';
-import Button from '../shared/Button.vue';
+import PictureForm from '../components/PictureForm.vue';
 
 export default {
     name: 'PictureNew',
     components: {
         ContentHead,
         ContentBody,
-        Input,
-        Button,
+        PictureForm,
     },
 };
 </script>
@@ -19,63 +16,6 @@ export default {
 <template>
     <ContentHead title="Upload Picture" />
     <ContentBody>
-        <form>
-            <Input label="File" :required="true" error="File is too large" />
-            <figure></figure>
-            <Input label="Album" :required="true" class="album" />
-            <Input label="Source" />
-
-            <div class="buttons">
-                <Button class="dark">Save</Button>
-                <Button class="light">Save and Stay Here</Button>
-            </div>
-        </form>
+        <PictureForm />
     </ContentBody>
 </template>
-
-<style lang="scss" scoped>
-@import '../styles/mixin';
-form {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    @include on-tablet {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 30px;
-        align-items: start;
-
-        .album {
-            grid-row: 1;
-            grid-column: 2;
-        }
-        .buttons {
-            grid-column: 2;
-        }
-        figure {
-            grid-row: 2 / 5;
-        }
-    }
-    @include on-desktop {
-        grid-template-columns: 400px 1fr;
-        .album {
-            grid-column: 1;
-            grid-row: 2;
-        }
-        .buttons {
-            grid-column: 1;
-            grid-row: 4;
-        }
-        figure {
-            grid-column: 2;
-            grid-row: 1 / 6;
-        }
-    }
-
-    .buttons {
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-}
-</style>
