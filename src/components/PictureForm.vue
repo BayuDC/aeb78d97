@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             stay: false,
+            loading: false,
             errors: {},
+            alert: {},
             file: '',
             album: '',
             source: '',
@@ -16,7 +18,12 @@ export default {
     },
     methods: {
         onSubmit() {
+            if (this.loading) return;
+
             this.errors = {};
+            this.alert = { message: 'Loading...' };
+            this.loading = true;
+
             this.$http
                 .post('/pictures', {
                     fileUrl: this.file,
@@ -24,14 +31,24 @@ export default {
                     source: this.source,
                 })
                 .then(res => {
-                    // Do something
+                    this.alert = {
+                        type: 'success',
+                        message: res.data.message || res.statusText,
+                    };
 
                     if (!this.stay) this.$router.push('/pictures');
                 })
                 .catch(err => {
-                    // Do something
+                    const res = err.response;
 
-                    this.errors = err.response.data.details;
+                    this.alert = {
+                        type: 'error',
+                        message: res.data.message || res.statusText,
+                    };
+                    this.errors = res.data.details;
+                })
+                .finally(() => {
+                    this.loading = false;
                 });
         },
     },
@@ -52,7 +69,8 @@ export default {
         <Input v-model="album" label="Album" :required="true" :error="errors.album" class="album" />
         <Input v-model="source" label="Source" :error="errors.source" class="source" />
 
-        <Alert class="">Loading...</Alert>
+        <Alert v-if="alert.message" :class="[alert.type]">{{ alert.message }}</Alert>
+
         <div class="buttons">
             <Button @click="() => (stay = false)" class="dark">Save</Button>
             <Button @click="() => (stay = true)" class="light">Save and Stay Here</Button>
@@ -100,11 +118,7 @@ export default {
         }
     }
     .alert {
-        margin: 20px 0;
-    }
-
-    .source {
-        margin-bottom: 0;
+        margin-bottom: 20px;
     }
     .buttons {
         display: flex;
