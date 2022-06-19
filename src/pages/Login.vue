@@ -15,31 +15,33 @@ export default {
         return {
             email: '',
             password: '',
+            loading: false,
             message: '',
-            isLoading: false,
         };
     },
     methods: {
-        onSubmit(e) {
-            if (this.isLoading) return;
+        onSubmit() {
+            if (this.loading) return;
 
+            this.loading = true;
             this.message = '';
-            this.isLoading = true;
 
             this.$http
                 .post('/auth/login', {
                     email: this.email,
                     password: this.password,
                 })
-                .then(async res => {
-                    await this.auth.load();
-                    this.$router.replace('/home');
+                .then(() => {
+                    this.auth.load().then(() => {
+                        this.$router.replace('/home');
+                    });
                 })
                 .catch(err => {
-                    this.message = err.response.data.message;
+                    const res = err.response;
+                    this.message = res.data.message;
                 })
                 .finally(() => {
-                    this.isLoading = false;
+                    this.loading = false;
                 });
         },
     },
@@ -61,8 +63,8 @@ export default {
             <Input v-model.lazy="email" label="Email" :required="true" />
             <Input v-model.lazy="password" label="Password" :required="true" type="password" />
 
-            <Alert v-if="message" class="error">{{ message }}</Alert>
-            <Button class="dark">Log In{{ isLoading ? '...' : '' }}</Button>
+            <Alert v-if="message" class="error no-border">{{ message }}</Alert>
+            <Button class="dark">Log In{{ loading ? '...' : '' }}</Button>
         </form>
     </div>
 </template>
