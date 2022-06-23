@@ -4,8 +4,6 @@ import useAuth from '../stores/auth';
 import Home from '../pages/Home.vue';
 import Landing from '../pages/Landing.vue';
 import Template from '../pages/Template.vue';
-import Login from '../pages/Login.vue';
-import Logout from '../pages/Logout.vue';
 
 import AlbumMain from '../pages/AlbumMain.vue';
 import PictureMain from '../pages/PictureMain.vue';
@@ -26,16 +24,6 @@ const routes = [
                 meta: { auth: true },
             },
         ],
-    },
-    {
-        path: '/login',
-        component: Login,
-        meta: { guest: true },
-    },
-    {
-        path: '/logout',
-        component: Logout,
-        meta: { auth: true },
     },
 ];
 
