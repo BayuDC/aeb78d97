@@ -3,14 +3,11 @@ import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
 import ComingSoon from '../components/ComingSoon.vue';
 
-import LinkDuo from '../shared/LinkDuo.vue';
-
 export default {
     name: 'PictureMain',
     components: {
         ContentHead,
         ContentBody,
-        LinkDuo,
         ComingSoon,
     },
 };
@@ -18,7 +15,7 @@ export default {
 
 <template>
     <ContentHead title="Pictures">
-        <LinkDuo to="/pictures/new" icon="add">Upload Pictures+</LinkDuo>
+        <!-- <LinkDuo to="/pictures/new" icon="add">Upload Pictures+</LinkDuo> -->
     </ContentHead>
     <ContentBody>
         <ComingSoon />

@@ -6,7 +6,6 @@ import Template from '../pages/Template.vue';
 
 import AlbumMain from '../pages/AlbumMain.vue';
 import PictureMain from '../pages/PictureMain.vue';
-import PictureNew from '../pages/PictureNew.vue';
 
 const routes = [
     { path: '/', component: Landing },
@@ -17,11 +16,6 @@ const routes = [
             { path: '/home', component: Home },
             { path: '/albums', component: AlbumMain },
             { path: '/pictures', component: PictureMain },
-            {
-                path: '/pictures/new',
-                component: PictureNew,
-                meta: { auth: true },
-            },
         ],
     },
 ];
