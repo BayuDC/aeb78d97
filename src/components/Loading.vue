@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 @import '../styles/variable';
 .loading {
+    text-align: center;
     font-family: $poppins;
     font-size: 36px;
     padding: 20px;

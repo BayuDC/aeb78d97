@@ -1,11 +1,36 @@
 <script>
+import AlbumItem from '../components/AlbumItem.vue';
+import AlbumItem from '../components/AlbumItem.vue';
+import Loading from '../components/Loading.vue';
+
 export default {
     name: 'AlbumList',
+    data() {
+        return {
+            albums: [],
+            loading: true,
+        };
+    },
+    created() {
+        this.$http
+            .get('/albums?full')
+            .then(res => {
+                this.albums = res.data.albums;
+            })
+            .finally(() => {
+                this.loading = false;
+            });
+    },
+    components: {
+        AlbumItem,
+        Loading,
+    },
 };
 </script>
 <template>
-    <div class="album-list">
-        <slot />
+    <Loading v-if="loading" />
+    <div v-else class="album-list">
+        <AlbumItem v-for="album of albums" :key="album.id" v-bind="album" />
     </div>
 </template>
 

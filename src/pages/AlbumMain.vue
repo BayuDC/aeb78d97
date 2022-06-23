@@ -1,8 +1,7 @@
 <script setup>
 import ContentHead from '../components/ContentHead.vue';
 import ContentBody from '../components/ContentBody.vue';
-import ComingSoon from '../components/ComingSoon.vue';
-import LinkDuo from '../shared/LinkDuo.vue';
+import AlbumList from '../components/AlbumList.vue';
 </script>
 
 <script>
@@ -11,8 +10,7 @@ export default {
     components: {
         ContentHead,
         ContentBody,
-        ComingSoon,
-        LinkDuo,
+        AlbumList,
     },
 };
 </script>
@@ -22,6 +20,6 @@ export default {
         <!-- <LinkDuo to="/albums/new" icon="add">Create Album+</LinkDuo> -->
     </ContentHead>
     <ContentBody>
-        <ComingSoon />
+        <AlbumList />
     </ContentBody>
 </template>

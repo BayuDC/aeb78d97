@@ -12,9 +12,11 @@ export default {
     },
     props: {
         name: String,
-        createdBy: String,
-        createdAt: String,
+        slug: String,
         community: Boolean,
+        picturesCount: Number,
+        createdBy: Object,
+        createdAt: String,
     },
 };
 </script>
@@ -22,15 +24,17 @@ export default {
 <template>
     <div class="album-item">
         <div class="flex mb-10 gap-20">
-            <h1 class="name">
-                # {{ name }}
-                <Badge v-if="community">Community</Badge>
-            </h1>
-            <div class="count">(69)</div>
+            <router-link :to="'/albums/' + slug">
+                <h1 class="name">
+                    # {{ name }}
+                    <Badge v-if="community">Community</Badge>
+                </h1>
+            </router-link>
+            <div class="count">({{ picturesCount }})</div>
         </div>
         <div class="flex mt-auto">
-            <div class="author">Anonymous</div>
-            <div class="date">22/02/20222</div>
+            <div class="author">{{ createdBy.name || 'Unknown' }}</div>
+            <div class="date">{{ new Date(createdAt).toLocaleDateString('id-ID') }}</div>
         </div>
     </div>
 </template>
@@ -64,6 +68,7 @@ export default {
         font-family: $poppins;
         font-size: 20px;
         line-height: 28px;
+        color: $black;
     }
 
     .count {
