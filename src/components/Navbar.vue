@@ -1,6 +1,4 @@
 <script>
-import { mapState } from 'pinia';
-import useAuth from '../stores/auth';
 import Link from '../shared/Link.vue';
 
 export default {
@@ -12,9 +10,6 @@ export default {
         Link,
     },
     emits: ['click'],
-    computed: {
-        ...mapState(useAuth, { authCheck: 'check' }),
-    },
 };
 </script>
 
@@ -24,12 +19,6 @@ export default {
             <li><Link @click="$emit('click')" to="/home">Home</Link></li>
             <li><Link @click="$emit('click')" to="/albums">Albums</Link></li>
             <li><Link @click="$emit('click')" to="/pictures">Pictures</Link></li>
-
-            <li>
-                <Link @click="$emit('click')" :to="authCheck ? '/logout' : '/login'" type="button">
-                    {{ authCheck ? 'Log Out' : 'Log In' }}
-                </Link>
-            </li>
         </ul>
     </nav>
 </template>

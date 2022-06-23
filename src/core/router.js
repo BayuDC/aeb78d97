@@ -1,5 +1,4 @@
-import { createRouter, createWebHistory, START_LOCATION } from 'vue-router';
-import useAuth from '../stores/auth';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from '../pages/Home.vue';
 import Landing from '../pages/Landing.vue';
@@ -30,26 +29,6 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-});
-
-router.beforeEach((to, from, next) => {
-    const auth = useAuth();
-    const guard = () => {
-        if (to.meta.auth && !auth.check) {
-            return next({ path: '/login' });
-        }
-        if (to.meta.guest && auth.check) {
-            return next({ path: '/home' });
-        }
-
-        next(true);
-    };
-
-    if (from === START_LOCATION) {
-        auth.load().then(guard);
-    } else {
-        guard();
-    }
 });
 
 export default router;
